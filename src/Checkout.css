@@ -9,6 +9,15 @@
   margin-left: 20px;
 }
 
+.checkout__header {
+  display: flex;
+}
+
+.checkout__subtotal {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .checkoutProduct {
   margin-top: 20px;
   display: flex;

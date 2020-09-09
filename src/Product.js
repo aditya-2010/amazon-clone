@@ -30,7 +30,7 @@ function Product({ id, title, image, price, rating }) {
           {Array(rating)
             .fill()
             .map(() => (
-              <span key={Math.random()} role="star" aria-hidden="true">
+              <span key={Math.random()} role="textbox" aria-hidden="true">
                 ⭐
               </span>
             ))}
