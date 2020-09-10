@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
+      .then(() => {
         // redirect to home
         history.push("/");
       })

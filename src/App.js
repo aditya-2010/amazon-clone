@@ -7,6 +7,9 @@ import Home from "./Home";
 import Checkout from "./Checkout";
 import Login from "./Login";
 import { auth } from "./firebase";
+import * as Animate from "./animate";
+import { AnimatedSwitch } from "react-router-transition";
+import "./animate.css";
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -39,7 +42,14 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Switch>
+        <AnimatedSwitch
+          atEnter={Animate.bounceTransition.atEnter}
+          atLeave={Animate.bounceTransition.atLeave}
+          atActive={Animate.bounceTransition.atActive}
+          mapStyles={Animate.mapStyles}
+          className="route-wrapper"
+        >
+          {/* <Switch> */}
           <Route path="/checkout">
             <Header />
             <Checkout />
@@ -51,7 +61,8 @@ function App() {
             <Header />
             <Home />
           </Route>
-        </Switch>
+          {/* </Switch> */}
+        </AnimatedSwitch>
       </div>
     </Router>
   );

@@ -16,6 +16,14 @@ function Header() {
     }
   };
 
+  const signinLink = () => {
+    if (!user) {
+      return "/signin";
+    } else {
+      return "/";
+    }
+  };
+
   return (
     <nav className="header">
       <Link to="/">
@@ -32,7 +40,7 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <Link to={!user && "/signin"} className="header__link">
+        <Link to={signinLink()} className="header__link">
           <div onClick={login} className="header__option">
             <span className="header__optionLineOne">Hello, {user?.email}</span>
             <span className="header__optionLineTwo">
