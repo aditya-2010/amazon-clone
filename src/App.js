@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
 import { useStateValue } from "./StateProvider";
 import Header from "./Header";
 import Home from "./Home";
 import Checkout from "./Checkout";
 import Login from "./Login";
 import { auth } from "./firebase";
-import * as Animate from "./animate";
-import { AnimatedSwitch } from "react-router-transition";
-import "./animate.css";
+import Payment from "./Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import Orders from "./Orders";
+import "./App.css";
+
+const promise = loadStripe(
+  "pk_test_51HPvWWDSwIxhYUYbetw6ihBrc2qKCDt6tfbVDzQdML81vF9h66kXqlB7UGtdANJClVQZ6nHp8XrAsXouvFPaXkgB006fVtxjLL"
+);
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -42,14 +47,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <AnimatedSwitch
-          atEnter={Animate.bounceTransition.atEnter}
-          atLeave={Animate.bounceTransition.atLeave}
-          atActive={Animate.bounceTransition.atActive}
-          mapStyles={Animate.mapStyles}
-          className="route-wrapper"
-        >
-          {/* <Switch> */}
+        <Switch>
           <Route path="/checkout">
             <Header />
             <Checkout />
@@ -57,12 +55,22 @@ function App() {
           <Route path="/signin">
             <Login />
           </Route>
+          <Route path="/orders">
+            <Header />
+
+            <Orders />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          </Route>
           <Route path="/">
             <Header />
             <Home />
           </Route>
-          {/* </Switch> */}
-        </AnimatedSwitch>
+        </Switch>
       </div>
     </Router>
   );

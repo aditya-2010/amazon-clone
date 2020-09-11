@@ -56,16 +56,16 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
-            onClick={handleLogin}
             type="submit"
             className="login__signinButton"
+            onClick={handleLogin}
           >
             Signin
           </button>
         </form>
         <p>
-          By continuing, you agree to Amazon's Conditions of Use and Privacy
-          Notice.
+          By continuing, you agree to this FAKE Amazon's Conditions of Use and
+          Privacy Notice.
         </p>
         <button onClick={handleRegister} className="login__registerButton">
           Create your Amazon Account

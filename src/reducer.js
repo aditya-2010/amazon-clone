@@ -16,6 +16,9 @@ function reducer(state, action) {
     case "ADD_TO_BASKET":
       return { ...state, basket: [...state.basket, action.item] };
 
+    case "EMPTY_BASKET":
+      return { ...state, basket: [] };
+
     case "REMOVE_FROM_BASKET":
       let newBasket = [...state.basket];
       const index = state.basket.findIndex(

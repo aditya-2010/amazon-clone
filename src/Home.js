@@ -26,7 +26,7 @@ function Home() {
           />
 
           <Product
-            id={1}
+            id={2}
             title={
               "Apple Watch Series 5 (GPS, 44MM) - Space Gray Aluminum Case with Black Sport Band"
             }
@@ -39,7 +39,7 @@ function Home() {
         </div>
         <div className="home__productsRow">
           <Product
-            id={1}
+            id={3}
             title={
               "Mytrix Playstation 4 Pro 2TB SSHD Console with Dualshock 4 Wireless Controller Bundle, 4K HDR, Playstation Pro Enhanced with Solid State Hybrid Drive"
             }
@@ -51,7 +51,7 @@ function Home() {
           />
 
           <Product
-            id={1}
+            id={4}
             title={
               "Dell AlienWare m15 R1 15.6'' FHD 144Hz Laptop, Intel Core i7, 16GB RAM, 512GB SSD, GeForce RTX 2070 8GB GDDR6 with Max-Q Design, Thunderbolt, HDMI, Windows 10 (RTX 2070)"
             }
@@ -62,7 +62,7 @@ function Home() {
             }
           />
           <Product
-            id={1}
+            id={5}
             title={
               "Echo Dot (3rd Gen) – New and improved smart speaker with Alexa (Grey)"
             }
