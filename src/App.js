@@ -11,6 +11,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Orders from "./Orders";
 import "./App.css";
+import HeaderTwo from "./HeaderTwo";
 
 const promise = loadStripe(
   "pk_test_51HPvWWDSwIxhYUYbetw6ihBrc2qKCDt6tfbVDzQdML81vF9h66kXqlB7UGtdANJClVQZ6nHp8XrAsXouvFPaXkgB006fVtxjLL"
@@ -23,7 +24,6 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         //user is logged in
-
         dispatch({
           type: "SET_USER",
           user: authUser,
@@ -35,7 +35,6 @@ function App() {
           user: null,
         });
       }
-      // console.log("USER>>>", authUser);
     });
 
     return () => {
@@ -68,6 +67,7 @@ function App() {
           </Route>
           <Route path="/">
             <Header />
+            <HeaderTwo />
             <Home />
           </Route>
         </Switch>

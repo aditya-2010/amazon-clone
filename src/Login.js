@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
 import { auth } from "./firebase";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,7 +18,12 @@ function Login() {
         // redirect to home
         history.push("/");
       })
-      .catch((e) => alert(e.message));
+      .catch((e) =>
+        toast.error(e.message, {
+          position: "top-center",
+          hideProgressBar: true,
+        })
+      );
   };
 
   const handleRegister = (e) => {
@@ -24,14 +31,20 @@ function Login() {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-        //
         history.push("/");
       })
-      .catch((e) => alert(e.message));
+      .catch((e) =>
+        toast.error(e.message, {
+          position: "top-center",
+          hideProgressBar: true,
+        })
+      );
   };
 
   return (
     <div className="login">
+      <ToastContainer position="top-center" hideProgressBar />
+
       <Link to="/">
         <img
           className="login__logo"

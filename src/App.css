@@ -1,3 +1,11 @@
 * {
   margin: 0;
 }
+
+.Toastify__toast--default {
+  color: black;
+}
+
+.Toastify__toast {
+  border-radius: 8px;
+}

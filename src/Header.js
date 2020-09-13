@@ -5,14 +5,19 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 function Header() {
   const [{ basket, user }] = useStateValue();
-  // console.log(basket);
 
   const login = () => {
     if (user) {
       auth.signOut();
+      toast.info("You've successfully Signed Out", {
+        position: "top-center",
+        hideProgressBar: true,
+      });
     }
   };
 
@@ -26,6 +31,7 @@ function Header() {
 
   return (
     <nav className="header">
+      <ToastContainer position="top-center" hideProgressBar />
       <Link to="/">
         <img
           className="header__logo"
@@ -37,6 +43,14 @@ function Header() {
       <div className="header__search">
         <input type="text" className="header__searchInput" />
         <SearchIcon className="header__searchIcon" />
+      </div>
+
+      <div className="header__flag">
+        <img
+          className="header__flagIcon"
+          src="https://cdn.countryflags.com/thumbs/india/flag-400.png"
+          alt=""
+        />
       </div>
 
       <div className="header__nav">

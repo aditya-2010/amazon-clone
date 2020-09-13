@@ -3,10 +3,9 @@ import { useStateValue } from "./StateProvider";
 import { db } from "./firebase";
 import "./Orders.css";
 import Order from "./Order";
-import Header from "./Header";
 
 function Orders() {
-  const [{ user, basket }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
 
   const [orders, setOrders] = useState([]);
 
@@ -31,7 +30,7 @@ function Orders() {
 
   return (
     <div className="orders">
-      <h1>{orders ? "Your Orders" : "Your Orders appear here"}</h1>
+      <h1>{user ? "Your Orders" : "Sign in to view your orders"}</h1>
       <div className="orders__order">
         {orders.map((order, index) => (
           <Order key={index} order={order} />

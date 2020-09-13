@@ -3,8 +3,6 @@ import { useStateValue } from "./StateProvider";
 import "./Checkout.css";
 import CheckoutProduct from "./CheckoutProduct";
 import Subtotal from "./Subtotal";
-import { CSSTransitionGroup } from "react-transition-group";
-// import FlipMove from "react-flip-move";
 
 function Checkout() {
   const [{ basket }] = useStateValue();
@@ -35,22 +33,16 @@ function Checkout() {
           {/* <hr /> */}
           {/* all products in basket */}
           <div className="checkout__product">
-            <CSSTransitionGroup
-              transitionName="checkout__productList"
-              transitionEnterTimeout={500}
-              transitionLeaveTimeout={300}
-            >
-              {basket?.map((item, index) => (
-                <CheckoutProduct
-                  key={index}
-                  id={item.id}
-                  title={item.title}
-                  image={item.image}
-                  price={item.price}
-                  rating={item.rating}
-                />
-              ))}
-            </CSSTransitionGroup>
+            {basket?.map((item, index) => (
+              <CheckoutProduct
+                key={index}
+                id={item.id}
+                title={item.title}
+                image={item.image}
+                price={item.price}
+                rating={item.rating}
+              />
+            ))}
           </div>
         </div>
       )}
